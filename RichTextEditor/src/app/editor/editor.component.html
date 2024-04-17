@@ -1,1 +1,13 @@
-<p>editor works!</p>
+<div style="margin: 5em">
+  <h1>Rich Text Editor</h1>
+  <p>Upload a Docx File</p>
+
+  <input type="file" (change)="onFileChange($event)" />
+  <!-- <button mat-button (click)="uploadDocxFile()">Upload Docx file</button> -->
+  <br />
+  <br />
+  <br />
+  <div style="width: 50em">
+    <ckeditor [editor]="Editor" [(ngModel)]="editorData"></ckeditor>
+  </div>
+</div>
