@@ -14,7 +14,9 @@ export class EditorComponent {
 
   constructor(private fileUploadService: FileUploadService) {}
 
-  // Function to handle file import
+  /**
+   * @description Function to handle file import
+   */
   onFileChange(event: any) {
     debugger;
     this.file = event.target.files[0];
@@ -28,13 +30,31 @@ export class EditorComponent {
     }
   }
 
-  // Function to convert Word file to HTML
+  /**
+   * @description Function to convert Word file to HTML
+   */
   convertWordToHtml() {
     if (this.file) {
       this.fileUploadService.uploadFile(this.file).subscribe({
         next: (htmlContent: string) => {
           debugger;
           this.editorData = htmlContent;
+        },
+        error: (err) => {
+          console.log('err => ', err);
+        },
+      });
+    }
+  }
+
+  /**
+   * @description Saves editor content to the DB
+   */
+  saveFileContent() {
+    if (this.editorData) {
+      this.fileUploadService.saveFile(this.editorData).subscribe({
+        next: (response) => {
+          console.log('response => ', response);
         },
         error: (err) => {
           console.log('err => ', err);
