@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditorComponent } from './editor/editor.component';
+import { TextEditorComponent } from './text-editor/text-editor.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: EditorComponent,
+    component: TextEditorComponent,
   },
 ];
 

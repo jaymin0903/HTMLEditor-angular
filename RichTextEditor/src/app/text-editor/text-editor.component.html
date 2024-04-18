@@ -1,0 +1,50 @@
+<div style="margin: 5em">
+  <h1>Rich Text Editor</h1>
+  <p>Upload a Docx File</p>
+
+  <input type="file" (change)="onFileChange($event)" />
+  <button mat-button (click)="saveFileContent()">Save</button>
+  <br />
+  <br />
+  <br />
+  <div style="width: 70em">
+    <!-- <ckeditor [editor]="Editor" [(ngModel)]="editorData"></ckeditor> -->
+    <editor
+      [init]="{
+        plugins:
+          'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons accordion',
+        base_url: '/tinymce',
+        suffix: '.min',
+        editimage_cors_hosts: ['picsum.photos'],
+        menubar: 'file edit view insert format tools table help',
+        toolbar:
+          'undo redo | accordion accordionremove | blocks fontfamily fontsize | bold italic underline strikethrough | align numlist bullist | link image | table media | lineheight outdent indent| forecolor backcolor removeformat | charmap emoticons | code fullscreen preview | save print | pagebreak anchor codesample | ltr rtl | language',
+        autosave_ask_before_unload: true,
+        autosave_interval: '30s',
+        autosave_prefix: '{path}{query}-{id}-',
+        autosave_restore_when_empty: false,
+        autosave_retention: '2m',
+        image_advtab: true,
+        importcss_append: true,
+        height: 600,
+        image_caption: true,
+        noneditable_class: 'mceNonEditable',
+        toolbar_mode: 'sliding',
+        contextmenu: 'link image table',
+        skin: 'oxide',
+        content_css: 'default',
+        content_style:
+          'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
+        content_langs: [
+          { title: 'English', code: 'en' },
+          { title: 'Spanish', code: 'es' },
+          { title: 'French', code: 'fr' },
+          { title: 'German', code: 'de' },
+          { title: 'Portuguese', code: 'pt' },
+          { title: 'Chinese', code: 'zh' }
+        ]
+      }"
+      [(ngModel)]="editorData"
+    ></editor>
+  </div>
+</div>
