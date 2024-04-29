@@ -53,3 +53,8 @@ img.align-right {
 .mce-toc li {
   list-style-type: none;
 }
+
+/* Hide the Upgrade button*/
+body .tox-promotion {
+  display: none !important;
+}
